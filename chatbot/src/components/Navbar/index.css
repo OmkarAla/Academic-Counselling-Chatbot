@@ -1,0 +1,35 @@
+.custom-navbar {
+    padding: 10px 20px;
+    width: 65vw;
+    position: fixed;
+    top: 0;
+    z-index: 1000; /* Higher than the video */
+  }
+
+  .cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    height: 50px;
+  }
+  
+  .nav-link {
+    font-size: 18px;
+    font-weight: 500;
+    color: #f6f4f4 !important;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #d42a5e !important;
+  }
+  
+  .search-icon {
+    font-size: 20px;
+    cursor: pointer;
+    color: #dcd8d8;
+  }
+  
