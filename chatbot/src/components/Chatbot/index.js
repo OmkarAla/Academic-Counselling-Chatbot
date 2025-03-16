@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import './index.css'
+import "./index.css";
 
 export default function Chatbot() {
   const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState("");
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const savedMessages = localStorage.getItem("chatMessages");
     if (savedMessages) {
       setMessages(JSON.parse(savedMessages));
+    } else {
+      const welcomeMessage = {
+        sender: "bot",
+        text: "Hello! I'm your Academic Counseling Assistant. Ask me anything about Amrita Chennai Campus! 😊"
+      };
+      setMessages([welcomeMessage]);
     }
   }, []);
 
@@ -18,29 +23,42 @@ export default function Chatbot() {
     localStorage.setItem("chatMessages", JSON.stringify(newMessages));
   };
 
-  const sendMessage = async () => {
-    if (!input.trim()) return;
-
-    const userMessage = { sender: "user", text: input };
-    const updatedMessages = [...messages, userMessage];
-    updateMessages(updatedMessages);
-
-    try {
-      const response = await axios.post("http://127.0.0.1:5000/api/chat", { message: input });
-
-      const botMessage = { sender: "bot", text: response.data.reply };
-      updateMessages([...updatedMessages, botMessage]);
-
-    } catch (error) {
-      console.error("Error fetching response:", error);
-    }
-
-    setInput("");
-  };
-
   const clearChat = () => {
     setMessages([]);
     localStorage.removeItem("chatMessages");
+  };
+
+  const sendMessage = async () => {
+    if (!query.trim()) return;
+
+    const userMessage = { sender: "user", text: query };
+    const updatedMessages = [...messages, userMessage];
+    updateMessages(updatedMessages);
+    setQuery("");
+
+    try {
+      const response = await fetch("http://localhost:5000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
+      });
+
+      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+      const data = await response.json();
+      console.log("📩 Received from backend:", data);  // Debugging line
+      const botMessage = { sender: "bot", text: formatLinks(data.response) }; 
+
+
+      updateMessages([...updatedMessages, botMessage]);
+    } catch (error) {
+      console.error("Error fetching response:", error);
+      updateMessages([...updatedMessages, { sender: "bot", text: "Error: Unable to get response." }]);
+    }
+  };
+
+  const formatLinks = (text) => {
+    return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
   };
 
   return (
@@ -50,7 +68,7 @@ export default function Chatbot() {
       <div className="chat-box border rounded p-3" style={styles.chatBox}>
         {messages.map((msg, index) => (
           <div key={index} style={{ ...styles.message, ...(msg.sender === "user" ? styles.userMessage : styles.botMessage) }}>
-            {msg.text}
+            <span dangerouslySetInnerHTML={{ __html: msg.text }} />
           </div>
         ))}
       </div>
@@ -60,8 +78,8 @@ export default function Chatbot() {
           type="text"
           className="form-control"
           placeholder="Ask a question..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
         />
         <button className="btn btn-primary" onClick={sendMessage}>Send</button>
@@ -82,7 +100,7 @@ const styles = {
     flexDirection: "column",
   },
   message: {
-    maxWidth: "70%",  // Limit message width
+    maxWidth: "70%",
     padding: "10px",
     borderRadius: "10px",
     marginBottom: "8px",
@@ -91,11 +109,11 @@ const styles = {
   userMessage: {
     backgroundColor: "#007bff",
     color: "white",
-    alignSelf: "flex-end",  // Align user messages to the right
+    alignSelf: "flex-end",
   },
   botMessage: {
     backgroundColor: "#e9ecef",
     color: "black",
-    alignSelf: "flex-start", // Align bot messages to the left
+    alignSelf: "flex-start",
   },
 };
