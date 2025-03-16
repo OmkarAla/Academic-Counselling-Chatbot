@@ -1,0 +1,200 @@
+{
+    "faq": [
+        {
+            "question": "Hi?",
+            "answer": "Hello! How can I assist you with academic counseling today? 😊"
+        },
+        {
+            "question": "What are the available courses at Amrita Chennai Campus?",
+            "answer": "Amrita Chennai Campus offers B.Tech, M.Tech, MBA, MSc, PhD, and other UG & PG programs. Visit https://www.amrita.edu for details."
+        },
+        {
+            "question": "What are the B.Tech specializations offered at Amrita Chennai?",
+            "answer": "B.Tech specializations include CSE, AI, Cyber Security, ECE, Mechanical, Civil, and Electrical Engineering."
+        },
+        {
+            "question": "Does Amrita offer B.Sc programs?",
+            "answer": "Yes, Amrita Chennai offers B.Sc programs in Data Science, Biotechnology, and Physics."
+        },
+        {
+            "question": "What is the admission process for B.Tech?",
+            "answer": "Admission is based on AEEE, JEE Mains, or SAT scores. Candidates must apply online at https://www.amrita.edu/admissions."
+        },
+        {
+            "question": "How can I register for AEEE?",
+            "answer": "You can register for AEEE through the official website: https://www.amrita.edu/admissions/aeee."
+        },
+        {
+            "question": "What is the syllabus for AEEE?",
+            "answer": "The AEEE syllabus includes Physics, Chemistry, Mathematics, and English from the 12th-grade curriculum."
+        },
+        {
+            "question": "What are the eligibility criteria for M.Tech?",
+            "answer": "Candidates must have a B.Tech/B.E degree in a relevant discipline with at least 60% aggregate. GATE scores are preferred."
+        },
+        {
+            "question": "Does Amrita Chennai offer direct admission?",
+            "answer": "Yes, a few seats are available under the NRI/Management quota. Contact the admission office for details."
+        },
+        {
+            "question": "What is the fee structure for B.Tech?",
+            "answer": "The tuition fee varies based on the branch and scholarship eligibility. Visit https://www.amrita.edu for detailed fees."
+        },
+        {
+            "question": "Are scholarships available for merit students?",
+            "answer": "Yes, scholarships are provided based on AEEE/JEE ranks, academic performance, and financial need."
+        },
+        {
+            "question": "What are the hostel facilities at Amrita Chennai?",
+            "answer": "The campus provides separate hostels for boys and girls with Wi-Fi, mess, laundry, and recreational areas."
+        },
+        {
+            "question": "Is hostel accommodation mandatory?",
+            "answer": "No, students can choose to stay off-campus, but hostel accommodation is recommended for convenience."
+        },
+        {
+            "question": "Are non-vegetarian meals available in the hostel?",
+            "answer": "No, the hostel mess serves only vegetarian meals."
+        },
+        {
+            "question": "What are the library facilities available?",
+            "answer": "The campus library has a large collection of books, research papers, e-books, and digital resources."
+        },
+        {
+            "question": "Does Amrita provide transportation services?",
+            "answer": "Yes, Amrita offers bus services from key locations across Chennai."
+        },
+        {
+            "question": "What are the campus placement statistics?",
+            "answer": "Amrita Chennai has over 90% placement records, with top recruiters like Google, Amazon, TCS, Infosys, and Microsoft."
+        },
+        {
+            "question": "What is the highest package offered in placements?",
+            "answer": "The highest package for B.Tech has been around ₹50 LPA in top companies."
+        },
+        {
+            "question": "Does Amrita Chennai offer international placements?",
+            "answer": "Yes, students have received international job offers and internships through Amrita's global tie-ups."
+        },
+        {
+            "question": "Can students do internships abroad?",
+            "answer": "Yes, Amrita has collaborations with international universities for research and internship opportunities."
+        },
+        {
+            "question": "What kind of research opportunities are available?",
+            "answer": "Students can participate in funded projects, industry collaborations, and research initiatives in various disciplines."
+        },
+        {
+            "question": "Does Amrita Chennai provide study-abroad opportunities?",
+            "answer": "Yes, Amrita has partnerships with universities in the USA, Canada, Germany, and Japan for student exchange programs."
+        },
+        {
+            "question": "What is the faculty-to-student ratio at Amrita Chennai?",
+            "answer": "The faculty-to-student ratio is approximately 1:15, ensuring personalized attention."
+        },
+        {
+            "question": "Does Amrita Chennai have a student grievance cell?",
+            "answer": "Yes, students can file grievances online or contact the Student Affairs Office for assistance."
+        },
+        {
+            "question": "What extracurricular activities are available?",
+            "answer": "The campus has cultural, music, dance, drama, debate, and technology clubs for students."
+        },
+        {
+            "question": "What sports facilities are available at Amrita Chennai?",
+            "answer": "The campus has facilities for cricket, football, basketball, badminton, table tennis, and athletics."
+        },
+        {
+            "question": "Does Amrita have an alumni network?",
+            "answer": "Yes, Amrita has a strong alumni network, and students can connect with industry professionals for mentorship."
+        },
+        {
+            "question": "Are there industry-oriented certification programs?",
+            "answer": "Yes, Amrita offers various certification programs in AI, Cybersecurity, Cloud Computing, and Data Science."
+        },
+        {
+            "question": "Does Amrita offer evening or weekend courses?",
+            "answer": "Some PG diploma and certification courses are available in weekend or online formats."
+        },
+        {
+            "question": "What are the banking facilities available on campus?",
+            "answer": "The campus has ATM and banking services for students."
+        },
+        {
+            "question": "Does Amrita Chennai have medical facilities?",
+            "answer": "Yes, the campus has a healthcare center with doctors and emergency medical services."
+        },
+        {
+            "question": "Are there career counseling services?",
+            "answer": "Yes, Amrita provides career guidance through mentorship programs and workshops."
+        },
+        {
+            "question": "Can students start startups at Amrita?",
+            "answer": "Yes, Amrita supports startups through its incubation center and entrepreneurship programs."
+        },
+        {
+            "question": "Does Amrita Chennai have IEEE or ACM student chapters?",
+            "answer": "Yes, the campus has IEEE, ACM, and various technical societies for students."
+        },
+        {
+            "question": "Is there a student exchange program?",
+            "answer": "Yes, students can participate in exchange programs with international universities."
+        },
+        {
+            "question": "What is the attendance policy at Amrita Chennai?",
+            "answer": "A minimum of 75% attendance is required for students to appear in exams."
+        },
+        {
+            "question": "Can I switch branches after the first year?",
+            "answer": "Branch change is allowed based on merit and seat availability after the first year."
+        },
+        {
+            "question": "Is there an option to take online exams?",
+            "answer": "Some courses offer online exam options, but most exams are conducted offline."
+        },
+        {
+            "question": "How do I get my transcripts from Amrita?",
+            "answer": "You can request official transcripts online through the student portal."
+        },
+        {
+            "question": "Are there exchange programs with foreign universities?",
+            "answer": "Yes, Amrita has collaborations with universities for student exchange programs."
+        },
+        {
+            "question": "How do I apply for hostel accommodation?",
+            "answer": "You can apply for a hostel during admission or through the hostel office."
+        },
+        {
+            "question": "What are the research facilities available?",
+            "answer": "Amrita has state-of-the-art research labs in AI, Robotics, Cybersecurity, and Biotechnology."
+        },
+        {
+            "question": "Does Amrita Chennai have incubation centers for startups?",
+            "answer": "Yes, the Amrita TBI (Technology Business Incubator) supports student startups."
+        },
+        {
+            "question": "explain the seat allotment process",
+            "answer": "Amrita University will contact successful candidates for seats provisionally based on their rank in the entrance exam. Candidates are to ensure their phones are on and charged during allotted times between 10am to 12pm. Documents, including photos and certificates, must be emailed to the university on the same day as the call before 5pm. Fees must be paid within 48 working hours of document verification, or the provisional allotment will be cancelled."
+        },
+        {
+            "question": "How is the verification of the certificates done",
+            "answer": "Certificate verification is an important process used to confirm the authenticity, and therefore the validity of the information contained in a certificate. The process can involve a variety of methods, depending on the type of certificate and the issuing authority. Visual inspection, cross-referencing of information, contacting issuing authorities, online verification portals, blockchain technology, digital certificates and QR codes, third-party verification services, and legal and notarial processes can all be used. Which methods are used for a particular certificate will depend on its type and its issuing authority."
+        },
+        {
+            "question": "What is the Phase-1 counselling schedule",
+            "answer": "Amrita University's Phase-1 online counselling has not listed a specific schedule. However, it does advise candidates to be available for counselling on their registered mobile number between 10:00 am to 12:00 noon according to their rank order. Candidates must have their original documents ready and keep their phones charged and accessible during this time. For any updates, candidates should check the university's admission page."
+        },
+        {
+            "question": "What are the approximate annual fee details for each course, specify a few",
+            "answer": "The annual fees for a course can vary according to the type, location and the institution offering it. Unfortunately, I don't have any data to provide information on the fees of every course, but I can try to give more specific information based on a few courses you're interested in. It is also recommended to contact the educational institutions directly for the most accurate information."
+        },
+        {
+            "question": "What is the annual fee details of BSc Anaesthesia  Technology (AT)",
+            "answer": "The annual fees for BSc Anaesthesia Technology are split into merit, management, and NRI categories. The fees range from 140,000 INR to 190,000 INR, plus a fixed fee of 37,450 INR for the first year. For NRIs, the tuition is 3,000 USD plus the fixed fee in INR. These fees do not include hostel and mess fees of 60,000 INR payable at the time of student onboarding."
+        },
+        {
+            "question": "What is the annual fee details of BSc Anaesthesia  Technology (AT) ",
+            "answer": "The annual fees for BSc Anaesthesia Technology are split into merit, management, and NRI categories. The fees range from 140,000 INR to 190,000 INR, plus a fixed fee of 37,450 INR for the first year. For NRIs, the tuition is 3,000 USD plus the fixed fee in INR. These fees do not include hostel and mess fees of 60,000 INR payable at the time of student onboarding."
+        }
+    ]
+}

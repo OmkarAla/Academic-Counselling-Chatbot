@@ -1,0 +1,32 @@
+# Ignore the virtual environment
+venv/
+.env/
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore FAISS index files
+app/faiss_index
+
+# Ignore PDF datasets
+pdfs/
+
+# Ignore log files and environment configs
+*.log
+*.env
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files (VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Ignore dependency files (if using pip)
+pip-log.txt
+
+node_modules/
