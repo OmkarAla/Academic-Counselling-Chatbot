@@ -41,7 +41,7 @@ export default function Chatbot() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query }),
-      });
+      });      
 
       if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
