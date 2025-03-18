@@ -1,0 +1,8 @@
+flask
+flask-cors
+cohere
+pdfplumber
+numpy
+json
+rouge
+bert-score
