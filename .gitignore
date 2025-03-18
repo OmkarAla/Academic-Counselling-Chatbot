@@ -11,8 +11,6 @@ __pycache__/
 # Ignore FAISS index files
 app/faiss_index
 
-# Ignore PDF datasets
-pdfs/
 
 # Ignore log files and environment configs
 *.log
