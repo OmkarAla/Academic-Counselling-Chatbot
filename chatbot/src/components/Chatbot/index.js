@@ -37,7 +37,7 @@ export default function Chatbot() {
     setQuery("");
 
     try {
-      const response = await fetch("http://localhost:5000/chat", {
+      const response = await fetch("https://academic-counselling-chatbot-production.up.railway.app/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query }),
