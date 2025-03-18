@@ -1,8 +1,8 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const fs = require("fs");
-const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import fs from "fs";
+import fetch from "node-fetch";
 import { pipeline } from "@xenova/transformers";
 
 const app = express();
