@@ -3,7 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
-const { pipeline } = require("@xenova/transformers");
+import { pipeline } from "@xenova/transformers";
 
 const app = express();
 const PORT = 5000;
