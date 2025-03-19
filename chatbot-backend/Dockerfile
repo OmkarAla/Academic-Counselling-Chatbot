@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y python3 python3-pip && \
     ln -s /usr/bin/python3 /usr/bin/python  # Ensure python command works
 
 # Set working directory
-WORKDIR /chatbot-backend/app
+WORKDIR /app
 
 # Copy files
 COPY . .
