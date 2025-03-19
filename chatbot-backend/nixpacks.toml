@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["python3", "pip"]
+
+[phases.build]
+cmds = [
+  "npm install",
+  "pip3 install --no-cache-dir -r chatbot-backend/requirements.txt"
+]
+
+[start]
+cmd = "npx concurrently 'node chatbot-backend/server.js' 'python3 chatbot-backend/rag_backend.py'"
