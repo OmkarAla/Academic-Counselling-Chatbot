@@ -17,7 +17,7 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
-const FAQ_FILE = "faqs.json";
+const FAQ_FILE = "chatbot-backend/faqs.json";
 
 // ✅ Load SentenceTransformer dynamically
 let embedder;
