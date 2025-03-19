@@ -88,7 +88,7 @@ app.post("/chat", async (req, res) => {
     let botResponse = "I'm sorry, I couldn't find an answer. Could you rephrase?";
     if (bestMatch.score < 0.7) {
         try {
-            const response = await fetch("https://academic-counselling-chatbot.railway.internal/chat", {
+            const response = await fetch("http://localhost:5001/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ query }),
