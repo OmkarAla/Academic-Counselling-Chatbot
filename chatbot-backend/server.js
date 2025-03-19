@@ -8,7 +8,13 @@ import { pipeline } from "@xenova/transformers";
 const app = express();
 const PORT = 5000;
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({
+    origin: ["http://localhost:3000", "https://nlpacc.vercel.app"], // Allow both local and deployed frontend
+    methods: "GET,POST,OPTIONS",
+    allowedHeaders: "Content-Type,Authorization",
+    credentials: true
+}));
+
 app.use(bodyParser.json());
 
 const FAQ_FILE = "faqs.json";
