@@ -16,7 +16,7 @@ COHERE_API_KEY = "REDACTED"  # Replace with actual API key
 cohere_client = cohere.Client(COHERE_API_KEY)
 
 # 🔹 FAQs File
-FAQ_FILE = "faqs.json"
+FAQ_FILE = "chatbot-backend/faqs.json"
 
 def load_faqs():
     """Dynamically reload FAQs from file before every request."""
@@ -28,7 +28,7 @@ def load_faqs():
         return []
 
 # 🔹 Directory containing PDFs
-PDF_FOLDER = "./pdfs"
+PDF_FOLDER = "chatbot-backend/pdfs"
 documents = []
 
 def extract_text_from_pdfs(pdf_folder):
