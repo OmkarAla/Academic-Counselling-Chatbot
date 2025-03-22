@@ -3,7 +3,6 @@ nixPkgs = ["python310", "python310Packages.pip", "python310Packages.setuptools"]
 
 [phases.install]
 cmds = [
-  "pip install --upgrade pip",
-  "pip install --upgrade setuptools wheel", 
-  "pip install flask flask-cors cohere pdfplumber numpy rouge bert-score"
+  "python3 -m pip install --upgrade pip setuptools wheel",
+  "python3 -m pip install -r chatbot-backend/requirements.txt"
 ]
