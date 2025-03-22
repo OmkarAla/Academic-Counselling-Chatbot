@@ -1,8 +1,8 @@
 [phases.setup]
-nixPkgs = ["python310", "python310Packages.pip", "python310Packages.setuptools"]
+nixPkgs = ["python310", "python310Packages.pip"]
 
 [phases.install]
 cmds = [
-  "python3 -m pip install --upgrade pip setuptools wheel",
-  "python3 -m pip install -r chatbot-backend/requirements.txt"
+  "pip install --upgrade pip",
+  "pip install -r chatbot-backend/requirements.txt"
 ]
