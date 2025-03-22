@@ -1,0 +1,15 @@
+{
+    "build": {
+      "nixpacks": {
+        "pkgs": ["python310", "python310Packages.pip", "nodejs-18_x"]
+      }
+    },
+    "deploy": {
+      "startCommand": "npx concurrently \"node chatbot-backend/server.js\" \"python3 chatbot-backend/rag_backend.py\"",
+      "preDeploy": [
+        "pip3 install --upgrade pip",
+        "pip3 install -r chatbot-backend/requirements.txt"
+      ]
+    }
+  }
+  
