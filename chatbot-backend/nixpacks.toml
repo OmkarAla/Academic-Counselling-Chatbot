@@ -1,8 +1,5 @@
 [phases.setup]
-nixPkgs = ["python3", "pip", "gcc", "glibc"]
+nixPkgs = ["python310", "python310Packages.pip"]
 
 [phases.install]
-cmds = [
-  "pip install --upgrade pip",
-  "pip install -r chatbot-backend/requirements.txt"
-]
+cmds = ["pip install --upgrade pip", "pip install -r chatbot-backend/requirements.txt"]
