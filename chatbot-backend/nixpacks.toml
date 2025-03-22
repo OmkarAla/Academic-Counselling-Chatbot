@@ -2,4 +2,4 @@
 nixPkgs = ["python310", "python310Packages.pip"]
 
 [phases.install]
-cmds = ["pip install --upgrade pip", "pip install -r /chatbot-backend/requirements.txt"]
+cmds = ["pip install --upgrade pip", "pip install flask flask-cors cohere pdfplumber numpy json rouge bert-score"]
