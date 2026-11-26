@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "web": {
+      "root": "chatbot",
+      "framework": "create-react-app"
+    },
+    "api": {
+      "root": "server",
+      "framework": "fastapi",
+      "buildCommand": "pip install -r requirements.txt && python -m app.ingest"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": { "service": "api" } },
+    { "source": "/(.*)", "destination": { "service": "web" } }
+  ]
+}

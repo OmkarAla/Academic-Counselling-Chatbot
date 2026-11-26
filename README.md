@@ -41,6 +41,19 @@ Endpoints: `GET /health`, `GET /documents`, `POST /chat`.
 
 Environment: `EMBEDDINGS=fastembed|hashing`, `MIN_SCORE` (default 0.45), `DATA_DIR`, `COHERE_API_KEY` (optional).
 
+## Deploy
+
+One Vercel project at the repo root, two services (`vercel.json`):
+
+| Service | Root | Framework | Public path |
+|---|---|---|---|
+| `api` | `server` | FastAPI | `/api/*` |
+| `web` | `chatbot` | Create React App | everything else |
+
+The API service runs `pip install -r requirements.txt && python -m app.ingest` at build time, so the index ships with the deployment. The front end calls `/api` on the same origin, so no `REACT_APP_API_URL` is needed.
+
+If the Python bundle with `fastembed` exceeds Vercel's function size limit, run `server/` on Render, Railway or Fly instead and set `REACT_APP_API_URL` to that origin.
+
 ## Quality
 
 - `pytest -q` → **12 passed** (chunking, index search and persistence, API contract, refusal path).

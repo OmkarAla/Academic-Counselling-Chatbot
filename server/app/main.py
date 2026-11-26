@@ -40,6 +40,7 @@ def create_app(
         threshold = threshold * 0.5
 
     @app.get("/health")
+    @app.get("/api/health")
     def health() -> dict:
         return {
             "status": "ok",
@@ -48,6 +49,7 @@ def create_app(
         }
 
     @app.get("/documents")
+    @app.get("/api/documents")
     def documents() -> dict:
         seen: dict[str, dict] = {}
         for chunk in loaded.chunks:
@@ -58,6 +60,7 @@ def create_app(
         return {"documents": list(seen.values())}
 
     @app.post("/chat")
+    @app.post("/api/chat")
     def chat(request: ChatRequest) -> dict:
         hits = loaded.search(request.query, model, k=config.TOP_K, max_per_source=3)
         kept = [hit for hit in hits if hit.score >= threshold]
