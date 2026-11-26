@@ -1,0 +1,34 @@
+[
+  {
+    "question": "When did B.Tech 2027 applications open?",
+    "expected_url": "https://www.amrita.edu/admissions/"
+  },
+  {
+    "question": "When is the AEEE 2027 examination conducted?",
+    "expected_url": "https://www.amrita.edu/admissions/notifications/"
+  },
+  {
+    "question": "Which entrance exams are accepted for B.Tech admission?",
+    "expected_url": "https://www.amrita.edu/admissions/"
+  },
+  {
+    "question": "How do I book an AEEE slot or download the admit card?",
+    "expected_url": "https://www.amrita.edu/admissions/notifications/"
+  },
+  {
+    "question": "What is the eligibility for B.Tech Computer Science and Engineering?",
+    "expected_url": "https://www.amrita.edu/program/btech-computer-science-and-engineering/"
+  },
+  {
+    "question": "Which campuses offer B.Tech programmes?",
+    "expected_url": "https://www.amrita.edu/admissions/"
+  },
+  {
+    "question": "Where is the Amrita Chennai campus located?",
+    "expected_url": "https://www.amrita.edu/campus/chennai/"
+  },
+  {
+    "question": "What postgraduate programmes are offered?",
+    "expected_url": "https://www.amrita.edu/admissions/postgraduate/"
+  }
+]

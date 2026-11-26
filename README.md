@@ -1,80 +1,55 @@
-# Academic Counselling Chatbot  
+# Amrita Admissions Assistant
 
-This is an **AI-powered chatbot** designed for **Amrita Vishwa Vidyapeetham, Chennai Campus** to assist students with academic counselling. It provides **real-time responses** based on FAQs and dynamically retrieves relevant information from PDFs using **Retrieval-Augmented Generation (RAG)**.  
+An unofficial assistant that answers prospective-student questions about Amrita Vishwa Vidyapeetham admissions, **from the official pages, with citations and a publication date on every answer**.
 
-## Features  
-**Dynamic FAQ Matching** - Uses **Sentence Transformers** (`Xenova/all-MiniLM-L6-v2`) to match questions with stored FAQs.  
-**RAG-based Retrieval** - Extracts and processes text from **multiple PDFs** to answer questions beyond FAQs.  
-**Cohere AI Integration** - Embeds text and generates responses via **Cohere's `command-r` model**.  
-**Auto FAQ Expansion** - Dynamically appends new Q&A pairs if no existing match is found.  
-**Multi-Metric Evaluation** - Uses **ROUGE-L, BERTScore, and Compression Ratio** to assess responses.  
-**Interactive Chat UI** - Built using **React.js** with local storage support.  
+Built for the admission process only: eligibility, entrance exams, dates, campuses, application steps. If the answer isn't in the indexed pages, it says so instead of guessing.
 
----
+> Not affiliated with Amrita Vishwa Vidyapeetham. Admission rules and dates change every cycle — every answer carries the URL and the time it was fetched.
 
-## Project Structure  
+## How it works
+
+```
+amrita.edu pages ──fetch──> strip nav/footer ──> chunk (900 chars, 150 overlap)
+     ──embed (fastembed, bge-small)──> index (npz + json)
+question ──embed──> top-k with per-source diversity ──> evidence selection
+     ──> extractive answer (default) or Cohere rewrite (if key set)
+     ──> {answer, citations[url,title,fetched_at,score], grounded}
+```
+
+Design decisions worth knowing:
+
+- **URL ingestion, not committed PDFs.** The corpus is fetched live into `server/data/` (gitignored) so dates stay current and no copyrighted material sits in the repo.
+- **Evidence selection is paragraph-level.** Program pages are full of course lists; sentence-level scoring produced incoherent answers, so the answer is a whole paragraph that overlaps the question.
+- **It refuses.** Below the similarity threshold, or when no paragraph overlaps the question, the API returns `grounded: false` and points at the admissions office.
+- **No API key required.** `fastembed` runs locally (ONNX, no torch); the extractive answer needs no model. `COHERE_API_KEY` upgrades the wording, not the facts.
+
+## Run
 
 ```bash
-Academic-Counselling-Chatbot
-├── backend
-│   ├── server.js         # Handles FAQ-based chatbot responses
-│   ├── rag_backend.py    # Manages PDF-based retrieval and response generation
-│   ├── faqs.json         # Stores dynamically updated FAQ pairs
-│   ├── pdfs/             # Directory for uploaded academic documents
-├── frontend
-│   ├── src/
-│   │   ├── Chatbot.js    # React-based chatbot UI
-│   │   ├── index.css     # Styling for chat interface
-│   ├── package.json      # Dependencies for frontend
-│   ├── App.js            # Main application file
-├── README.md             # Project documentation
-└── .gitignore            # Files to ignore in version control
+cd server
+python -m pip install -r requirements.txt
+python -m app.ingest                 # fetch 8 admissions pages, build the index
+python -m uvicorn app.main:app --port 8080
 ```
-## Tech Stack  
 
-### Backend  
-- **Node.js (Express.js)** - API for **FAQ matching** and **dynamic updates** (`server.js`)  
-- **Python (Flask)** - Handles **RAG-based PDF retrieval** and **response generation** (`rag_backend.py`)  
-- **Cohere API** - Used for **embedding, retrieval, and response generation**  
-- **PDF Processing** - Utilizes `pdfplumber` for **extracting content from academic PDFs**  
-- **Data Storage** - `faqs.json` stores **dynamic Q&A pairs**  
+```bash
+curl -s localhost:8080/chat -H 'content-type: application/json' \
+  -d '{"query":"When is the AEEE 2027 exam?"}'
+```
 
-### Frontend  
-- **React.js** - Chatbot UI (`Chatbot.js`)  
-- **Bootstrap** - For styling and UI components  
-- **Local Storage** - Stores chat history **persistently**  
+Endpoints: `GET /health`, `GET /documents`, `POST /chat`.
 
----
+Environment: `EMBEDDINGS=fastembed|hashing`, `MIN_SCORE` (default 0.45), `DATA_DIR`, `COHERE_API_KEY` (optional).
 
-## How It Works  
+## Quality
 
-### **FAQ Matching**  
-**User asks a question** in the chatbot interface.  
-The **FAQ database (`faqs.json`) dynamically reloads** inside `server.js`.  
-If a **similar question exists**, the chatbot **returns the matched answer**.  
+- `pytest -q` → **12 passed** (chunking, index search and persistence, API contract, refusal path).
+- `python -m eval.run_eval` → **recall@3: 8/8** on eight admission questions with an expected source page.
 
----
+## Honest limitations
 
-### **RAG-based Retrieval (if FAQ match fails)**  
-**All PDFs are combined into a single document** in `rag_backend.py`.  
-The user’s **query embedding is matched** against the document embedding.  
-If **relevant information is found**, a **response is generated** using **Cohere AI**.  
-
----
-
-### **FAQ Expansion**  
-If **no FAQ match exists**, the chatbot **generates a new response**.  
-The **relevance is verified** using **cosine similarity** between the **query and response embeddings**.  
-If the **similarity score is high**, the **new Q&A pair is added to `faqs.json`**.  
-
----
-
-### **Response Evaluation**  
-The chatbot evaluates responses using the following NLP metrics:  
-
-**ROUGE-L** - Measures **text similarity** with existing FAQs.  
-**BERTScore** - Checks **contextual similarity** to ensure **accurate responses**.  
-**Compression Ratio** - Ensures **concise** and **non-redundant** responses.  
-
----
-
+- **Extractive answers quote.** The default answer is the best-matching paragraph, so it can be broader than a human would phrase it. Cohere improves this; without a key the trade-off is deliberate — it cannot invent a fee or a date.
+- **Eligibility wording is buried on program pages.** Retrieval finds the page; the quoted paragraph may be a programme overview rather than the marks table. Heading-aware chunking is the next fix.
+- **The corpus is eight pages.** Topics outside it (fees, scholarships, hostel charges) correctly fall back to "not in the indexed pages".
+- **No auth or rate limiting**, and no scheduled re-ingestion yet. Both are required before this is more than a demo.
+- **Unofficial.** Always verify against amrita.edu before acting.

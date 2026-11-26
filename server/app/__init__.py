@@ -1,0 +1,1 @@
+"""Amrita admissions assistant service."""

@@ -31,3 +31,8 @@ node_modules/
 .env
 __pycache__/
 *.pyc
+
+server/data/
+server/.pytest_cache/
+server/__pycache__/
+*.pyc
