@@ -12,7 +12,12 @@ app = Flask(__name__)
 CORS(app)
 
 # 🔹 Initialize Cohere API
-COHERE_API_KEY = "REDACTED"  # Replace with actual API key
+COHERE_API_KEY = os.environ.get("COHERE_API_KEY")
+if not COHERE_API_KEY:
+    raise RuntimeError(
+        "COHERE_API_KEY is not set. Copy .env.example to .env and fill it in, "
+        "or export the variable before starting the service."
+    )
 cohere_client = cohere.Client(COHERE_API_KEY)
 
 # 🔹 FAQs File

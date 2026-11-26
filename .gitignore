@@ -28,3 +28,6 @@ Thumbs.db
 pip-log.txt
 
 node_modules/
+.env
+__pycache__/
+*.pyc
